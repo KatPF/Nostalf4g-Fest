@@ -7,14 +7,106 @@
 
     <link rel="icon" type="image/png" href="Logos/LOGO_blanco.png">
     <link rel="stylesheet" href="styles.css">
+    <!-- Nota: para reactivar la transicion glitch, volver a agregar esta linea: <script src="transitions.js" defer></script> -->
 </head>
-<body>
-    <section class="portada">
-        <h1>Info del evento</h1>
-        <img src="Logos/LOGO_blanco.png" alt="Logo de Nostalfag Fest">
-        <img src="IMG/placeholder.jpg" alt="pagina en construccion - esta imagen es un placeholder">
-        <p>pagina en construccion - esta imagen es un placeholder</p>
-        <a class="boton" href="index.html">Volver al inicio</a>
-    </section>
+<body class="fondo-interior">
+    <header class="site-header">
+        <nav class="navbar" aria-label="Navegación principal">
+            <a class="brand" href="index.html">
+                <img src="Logos/LOGO_blanco.png" alt="Nostalfag Fest">
+                <span>Nostalfag Fest</span>
+            </a>
+
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <ul class="nav-links">
+                <li><a href="index.html#inicio">Inicio</a></li>
+                <li><a href="Info.html">Info</a></li>
+                <li><a href="merch.html">Merch</a></li>
+                <li><a href="quienes-somos.html">¿Quiénes somos?</a></li>
+                <li><a href="ubicacion.html">Ubicación</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="pagina-ubicacion">
+        <section class="ubicacion">
+            <h1>Info del evento</h1>
+            <img src="IMG/placeholder.jpg" alt="Imagen placeholder del evento Nostalfag Fest">
+            <p>
+                Esta sección reúne información general y texto placeholder sobre las experiencias que vas a encontrar en la Nostalfag Fest.
+                La idea es que cada espacio tenga su propia identidad, pero que todo siga respirando la misma nostalgia digital medio caótica.
+            </p>
+            <p>
+                Más adelante acá se puede reemplazar este contenido por horarios, artistas invitados, actividades confirmadas,
+                requisitos para participar y cualquier detalle de organización que haga falta.
+            </p>
+
+            <section class="columnas">
+                <article class="columna">
+                    <h3>Un ciber</h3>
+                    <p>
+                        Espacio placeholder pensado como homenaje al cyber de barrio: máquinas viejas, interfaces anticuadas y una atmósfera
+                        que mezcla juego, desorden y recuerdos de navegación dudosa. Acá podrían ir detalles sobre tiempos de uso,
+                        dinámica de participación y qué tipo de experiencia interactiva va a ofrecerse.
+                    </p>
+                </article>
+
+                <article class="columna">
+                    <h3>Una PS2 slim</h3>
+                    <p>
+                        Sector dedicado a la consola más querida por una generación entera. Este bloque puede incluir texto descriptivo sobre
+                        juegos disponibles, modalidad de exhibición, espacio para fotos y alguna explicación más desarrollada sobre el guiño
+                        nostálgico que representa dentro del evento.
+                    </p>
+                </article>
+
+                <article class="columna">
+                    <h3>Tumblr page</h3>
+                    <p>
+                        Área orientada a la personalización, al caos visual hermoso y a la estética de internet de otra época. En esta parte
+                        podría explicarse cómo se arman las actividades, si habrá mini talleres, referencias visuales, recursos descargables
+                        o instancias donde el público intervenga con sus propios diseños.
+                    </p>
+                </article>
+            </section>
+
+            <section class="columnas">
+                <article class="columna">
+                    <h3>Stickers</h3>
+                    <p>
+                        Sector reservado para artistas y producciones gráficas independientes. Acá puede ir una descripción placeholder sobre
+                        puestos, variedad de diseños, ediciones especiales y toda la lógica del intercambio visual que acompaña a cualquier
+                        evento con comunidad y estética propia.
+                    </p>
+                </article>
+
+                <article class="columna">
+                    <h3>Jam y música en vivo</h3>
+                    <p>
+                        Espacio sonoro del festival, pensado para bandas, sets breves o intervenciones musicales que acompañen el resto de las
+                        actividades. Este texto después puede reemplazarse por grilla horaria, nombres de proyectos invitados y detalles
+                        técnicos del escenario o zona de sonido.
+                    </p>
+                </article>
+
+                <article class="columna">
+                    <h3>Flash tattoo</h3>
+                    <p>
+                        Área destinada a diseños rápidos, pequeños y bien ligados a la identidad visual del evento. En esta sección podría ir
+                        información sobre estilos disponibles, cuidados básicos, sistema de turnos y todo lo necesario para que la propuesta
+                        no sea sólo estética sino también clara para quienes quieran participar.
+                    </p>
+                </article>
+            </section>
+
+            <a class="boton" href="index.html#inicio">Volver al inicio</a>
+        </section>
+    </main>
 </body>
 </html>

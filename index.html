@@ -7,9 +7,34 @@
 
     <link rel="icon" type="image/png" href="Logos/LOGO_blanco.png">
     <link rel="stylesheet" href="styles.css">
+    <!-- <script src="transitions.js" defer></script> -->
 </head>
 
 <body>
+    <header class="site-header">
+        <nav class="navbar" aria-label="Navegación principal">
+            <a class="brand" href="index.html">
+                <img src="Logos/LOGO_blanco.png" alt="Nostalfag Fest">
+                <span>Nostalfag Fest</span>
+            </a>
+
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="Info.html">Info</a></li>
+                <li><a href="merch.html">Merch</a></li>
+                <li><a href="quienes-somos.html">¿Quiénes somos?</a></li>
+                <li><a href="ubicacion.html">Ubicación</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <section class="portada">
         <h1>Bienvenido a</h1>
         <img src="Logos/LOGO_blanco.png" alt="Logo de Nostalfag Fest">
@@ -19,37 +44,65 @@
     </section>
 
     <main id="inicio" class="inicio">
-        <h2>¿Qué vas a encontrar en la Nostalfag Fest?</h2>
+        <h2 class="section-title">¿Qué vas a encontrar en la Nostalfag Fest?</h2>
 
         <section class="columnas">
             <article class="columna">
                 <h3>Un ciber</h3>
                 <img src="IMG/Thom_Yorke_Computer.jpg" alt="Imagen de un ciber pero es Thom Yorke de la banda Radiohead">
                 <p>Un ciber con el CS 1.6, una única computadora que cada tanto se redirige solita a LiveLeak.</p>
+                <a class="boton" href="Info.html">Saber más</a>
             </article>
 
             <article class="columna">
                 <h3>Una PS2 slim</h3>
                 <img src="IMG/PS2_Slim.png" alt="Imagen de una PS2 slim que en realidad saqué de Internet">
                 <p>Una única PlayStation 2 Slim para que los chicos se saquen una foto para el feed de Instagram. La PS2 no debería funcionar, los chicos no saben lo que es un CD.</p>
+                <a class="boton" href="Info.html">Saber más</a>
             </article>
 
             <article class="columna">
                 <h3>Tumblr page</h3>
                 <img src="IMG/Tumblr_Page.png" alt="Imagen de una página de Tumblr">
                 <p>Clases introductorias para armar tu página ideal de Tumblr, la webpage customizable más nostálgica de los jóvenes. </p>
+                <a class="boton" href="Info.html">Saber más</a>
+            </article>
+            <article class="columna">
+                <h3>Stickers</h3>
+                <img src="https://tn.com.ar/resizer/v2/la-sticker-fest-se-hizo-en-un-colegio-en-once-foto-tnagustina-ribo-WPBBD7H35RDEZNIP76UORYXFN4.jpg?auth=50c228408dfb7de51fc0e4e70acf54876c26c21a06b7acb20438b292d2d84073&width=1440" alt="Espacio de stickers hecho por artistas independientes">
+                <p>Sector de stickers hecho por artistas independientes (todo buen evento tiene un sector de stickers).</p>
+                <a class="boton" href="Info.html">Saber más</a>
+            </article>
+
+            <article class="columna">
+                <h3>Jam y música en vivo</h3>
+                <img src="https://thumbs.dreamstime.com/b/rock-music-band-performing-isolated-white-background-356359320.jpg" alt="Musica en vivo con una banda de rock tocando en un escenario">
+                <p>Los buenos eventos siempre necesitan una banda tributo del Top 10 de MTV.</p>
+                <a class="boton" href="Info.html">Saber más</a>
+            </article>
+
+            <article class="columna">
+                <h3>Flash tattoo</h3>
+                <img src="https://media.istockphoto.com/id/1184219605/photo/tattoo-artist-making-a-tattoo-on-a-shoulder.jpg?s=612x612&w=0&k=20&c=a4HHJ5tFd1GcKPEESL_33i41KB2ZDz6vTxjMHr1XMxc=" alt="Flash tattoo hecho por un artista independiente">
+                <p>Flash tattoo por artistas independientes (todo buen evento tiene también una esquina donde te hacés tatuajes medio tumberos).</p>
+                <a class="boton" href="Info.html">Saber más</a>
             </article>
         </section>
 
+
+ <h2 class="section-title">Conócenos</h2>
         <section class="saber-mas">
-            <h3>¿Querés saber más?</h3>
-            <p>lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <a class="boton" href="Info.html" target="_blank">Acá podés saber más</a>
+            <h3>¿Querés conocer al equipo?</h3>
+            <img src="https://thumbs.dreamstime.com/b/grupo-de-tres-empollones-19478687.jpg" alt="Imagen del equipo de Nostalfag Fest, pero en realidad es un stock photo de tres nerds">
+            <p>Somos como vos, nerds, tenemos nostalgia y queremos que nos conozcas.</p>
+            <a class="boton" href="quienes-somos.html" target="_blank">¿Quiénes somos?</a>
         </section>
 
+
+ <h2 class="section-title">Ubicación</h2>
         <section class="saber-mas">
-            <h3>Ubicación</h3>
-            <img src="IMG/placeholder.jpg" alt="Imagen de la estación de tren de La Plata">
+            <h3>¿Dónde queda el evento?</h3>
+            <img src="https://laplataterminal.com/download/multimedia.normal.8309e26628a6ca8c.7472656e20726f636120315f6e6f726d616c2e6a7067.jpg" alt="imagen de la estación de tren de La Plata, pero del Roca, no de La Plata">
             <p>El evento va a realizarse cada lunes, a las 18:30 en la estación de La Plata</p>
             <p>Consultá el mapa y todos los detalles para llegar al evento.</p>
             <a class="boton" href="ubicacion.html" target="_blank" rel="noopener">¿Cómo llegar?</a>
