@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Oxanium:wght@400;500;600;700&display=swap');
 
+/* Reinicio global: elimina márgenes y rellenos del navegador y fija el modelo de caja. */
 * {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
 }
 
+/* Fondo general y capas de interferencia que aparecen durante el efecto glitch, es JS por eso no lo dejo aplicado. */
 html {
 	/* Fondo base original: background: #050505; */
 	/* Variante con GIF: background: url('https://media.tenor.com/JQ-v2MptkzUAAAAM/pixel-stars-galaxy-twinkling.gif') center / cover no-repeat fixed; */
@@ -58,6 +60,7 @@ body {
 	filter: none;
 }
 
+/* Fondo animado loop detrás del contenido de las páginas. */
 body::before {
 	content: '';
 	position: fixed;
@@ -72,6 +75,7 @@ body::before {
 	z-index: -3;
 }
 
+/* Clases que activan las animaciones de entrada y salida entre páginas. */
 body.is-entering {
 	animation: page-glitch-enter 0.55s steps(2, end) both;
 }
@@ -81,6 +85,7 @@ body.is-leaving {
 	pointer-events: none;
 }
 
+/* Fotograma a fotograma, estas animaciones simulan una transición con glitch. JS, no aplicado */
 @keyframes page-glitch-enter {
 	0% {
 		opacity: 0;
@@ -139,6 +144,7 @@ body.is-leaving {
 	}
 }
 
+/* Fondo alternativo para las páginas interiores: imagen repetida y velo oscuro. */
 body.fondo-interior {
 	position: relative;
 	isolation: isolate;
@@ -166,6 +172,7 @@ body.fondo-interior::after {
 	z-index: -1;
 }
 
+/* Cabecera fija y estilos de la marca y del menú de navegación. */
 .site-header {
 	position: sticky;
 	top: 0;
@@ -200,6 +207,7 @@ body.fondo-interior::after {
 	object-fit: contain;
 }
 
+/* Control del menú móvil: el checkbox queda oculto y su etiqueta actúa como botón. */
 .nav-toggle {
 	position: absolute;
 	top: -9999px;
@@ -224,6 +232,7 @@ body.fondo-interior::after {
 	transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
+/* Enlaces del menú y apariencia al pasar el cursor. */
 .nav-links {
 	display: flex;
 	align-items: center;
@@ -247,6 +256,7 @@ body.fondo-interior::after {
 	color: #8dd8bd;
 }
 
+/* Tipografía de títulos y presentación principal de la portada. */
 h1,
 h2,
 h3 {
@@ -286,6 +296,7 @@ h3 {
 	z-index: 1;
 }
 
+/* Imagen, título y botón de llamada a la acción de la portada. */
 h1 {
 	margin-bottom: 30px;
 	color: #2b896b;
@@ -313,6 +324,7 @@ h1 {
 	background: #176252;
 }
 
+/* Sección de inicio, que se muestra cuando su identificador es el destino del enlace. */
 .inicio {
 	display: none;
 	min-height: 100vh;
@@ -367,6 +379,7 @@ h1 {
 	margin-top: 0;
 }
 
+/* Rejilla de columnas y tarjetas de contenido de la página de inicio. */
 .columnas {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
@@ -418,6 +431,7 @@ h1 {
 	margin-top: 0;
 }
 
+/* Panel de información adicional y tratamiento de su imagen. */
 .saber-mas {
 	width: min(100%, 760px);
 	margin: 40px auto 0;
@@ -451,6 +465,7 @@ h1 {
 	filter: grayscale(0%);
 }
 
+/* Bloques y distribución específicos de la página de ubicación. */
 .ubicacion {
 	width: min(100%, 900px);
 	margin: 40px auto 0;
@@ -506,6 +521,7 @@ h1 {
 	filter: grayscale(0%);
 }
 
+/* Mapa adaptable, botones y variante visual del botón secundario. */
 .mapa {
 	width: 100%;
 	max-width: 780px;
@@ -530,6 +546,7 @@ h1 {
 	background: #2b896b;
 }
 
+/* Ajustes para pantallas estrechas: menú desplegable y contenido en una columna. */
 @media (max-width: 768px) {
 	.navbar {
 		flex-wrap: wrap;
