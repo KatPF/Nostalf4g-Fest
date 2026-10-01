@@ -322,7 +322,7 @@ h1 {
 	background: #176252;
 }
 
-/* Sección de inicio, que se muestra cuando su identificador es el destino del enlace. */
+/* Sección de inicio, solamente va a verse si el usuario hace clic en el enlace que lo invita amablemente a tocarlo */
 .inicio {
 	display: none;
 	min-height: 100vh;
