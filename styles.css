@@ -518,6 +518,30 @@ h1 {
 	line-height: 1.6;
 }
 
+.faq-lista {
+	display: grid;
+	gap: 12px;
+	margin: 28px 0;
+	text-align: left;
+}
+
+.faq-lista details {
+	padding: 18px 20px;
+	background: rgba(0, 0, 0, 0.25);
+	border-left: 5px solid #2b896b;
+}
+
+.faq-lista summary {
+	color: #8dd8bd;
+	cursor: pointer;
+	font-family: 'Oxanium', sans-serif;
+	font-weight: 700;
+}
+
+.faq-lista details p {
+	margin: 14px 0 0;
+}
+
 .ubicacion > img {
 	width: min(100%, 500px);
 	aspect-ratio: 4 / 3;
