@@ -31,7 +31,7 @@ p {
 	line-height: 1.7;
 }
 
-/* Fondo animado loop detrás del contenido de las páginas. */
+/* Fondo pixel star monocromático en loop detrás del contenido de las páginas. */
 body::before {
 	content: '';
 	position: fixed;
@@ -43,6 +43,15 @@ body::before {
 	filter: grayscale(100%) blur(2px) brightness(0.5);
 	opacity: 0.8;
 	z-index: -3;
+}
+
+/* Fondo aleatorio: it's peanut butter jelly time!!! */
+html.easter-egg-background body::before {
+	background-image: url('https://images.steamusercontent.com/ugc/275102315861800076/AEDECD33BCD2598D93C8DF2FA77BDFF9DF65ABDD/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false');
+	background-position: left center;
+	background-size: 33.333% 100%;
+	background-repeat: repeat-x;
+	filter: grayscale(100%) contrast(1.05) brightness(0.75) blur(4px);
 }
 
 /* Detalle oscuro adicional para páginas interiores, sobre el mismo fondo monocromático. */
@@ -76,6 +85,9 @@ body.fondo-interior::after {
 	display: inline-flex;
 	align-items: center;
 	gap: 12px;
+}
+
+.brand-name {
 	color: white;
 	text-decoration: none;
 	font-family: 'Oxanium', sans-serif;
@@ -83,10 +95,36 @@ body.fondo-interior::after {
 	letter-spacing: 0.03em;
 }
 
+.brand-logo-trigger {
+	display: inline-flex;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	cursor: pointer;
+}
+
+.brand-logo-trigger:focus-visible,
+.brand-name:focus-visible {
+	outline: 2px solid #8dd8bd;
+	outline-offset: 4px;
+}
+
 .brand img {
 	width: 42px;
 	height: 42px;
 	object-fit: contain;
+}
+
+.easter-egg-notice {
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+	z-index: 1100;
+	padding: 12px 18px;
+	background: #105b57;
+	border-left: 5px solid #8dd8bd;
+	color: white;
+	font-family: 'Oxanium', sans-serif;
 }
 
 /* Control del menú móvil: el checkbox queda oculto y su etiqueta actúa como botón. */
@@ -220,7 +258,7 @@ h1 {
 	background: #176252;
 }
 
-/* Sección de inicio, solamente va a verse si el usuario hace clic en el enlace que lo invita amablemente a tocarlo */
+/* Sección de inicio, solamente va a verse si el usuario hace click en el enlace que lo invita amablemente a tocarlo (emoji de besito) */
 .inicio {
 	display: none;
 	min-height: 100vh;

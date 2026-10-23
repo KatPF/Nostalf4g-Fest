@@ -7,15 +7,18 @@
 
     <link rel="icon" type="image/png" href="Logos/LOGO_blanco.png">
     <link rel="stylesheet" href="styles.css">
+    <script src="easter-egg.js"></script>
 </head>
 
 <body class="fondo-interior">
     <header class="site-header">
         <nav class="navbar" aria-label="Navegación principal">
-            <a class="brand" href="index.html">
-                <img src="Logos/LOGO_blanco.png" alt="Nostalfag Fest">
-                <span>Nostalfag Fest</span>
-            </a>
+            <div class="brand">
+                <button class="brand-logo-trigger" type="button" aria-label="Logo Nostalfag Fest, activar easter egg al octavo clic" aria-pressed="false">
+                    <img src="Logos/LOGO_blanco.png" alt="">
+                </button>
+                <a class="brand-name" href="index.html">Nostalfag Fest</a>
+            </div>
 
             <input type="checkbox" id="nav-toggle" class="nav-toggle">
             <label for="nav-toggle" class="nav-toggle-label" aria-label="Abrir menú">
