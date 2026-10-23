@@ -6,8 +6,8 @@
     <title>Merch | Nostalfag Fest</title>
 
     <link rel="icon" type="image/png" href="Logos/LOGO_blanco.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
-    <!-- Nota: para reactivar la transicion glitch, volver a agregar esta linea: <script src="transitions.js" defer></script> -->
 </head>
 
 <body class="fondo-interior">
@@ -37,13 +37,118 @@
     </header>
 
     <main class="pagina-ubicacion">
-        <section class="ubicacion">
-            <h1>Merch</h1>
-            <img src="IMG/placeholder.jpg" alt="Merch de Nostalfag Fest en construcción">
-            <p>La sección de merch está en construcción.</p>
-            <p>Pronto vas a poder ver remeras, stickers y otras cosas dignas de una nostalgia digital bien curada.</p>
+        <section class="ubicacion pagina-merch" aria-labelledby="titulo-merch">
+            <h1 id="titulo-merch">Merch</h1>
+            <p>Vos lo pedís, vos lo tenés: merch del mejor festival existente, precio accesible y de buena calidad.</p>
+
+            <div id="merchCarousel" class="carousel slide merch-carousel" aria-label="Productos de Nostalfag Fest">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#merchCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Producto 1"></button>
+                    <button type="button" data-bs-target="#merchCarousel" data-bs-slide-to="1" aria-label="Producto 2"></button>
+                    <button type="button" data-bs-target="#merchCarousel" data-bs-slide-to="2" aria-label="Producto 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <article class="carousel-item active">
+                        <img class="merch-product-image" src="IMG/placeholder.jpg" alt="Imagen provisoria de una remera de Nostalfag Fest">
+                        <div class="merch-product-info">
+                            <h2>Remera Oficial de la Nostalfag Fest</h2>
+                            <p>Una remera y, además, oficial.</p>
+                            <a class="boton merch-product-buy" href="#comprar" data-producto="remera-oficial">¡Lo quiero YA!</a>
+                        </div>
+                    </article>
+                    <article class="carousel-item">
+                        <img class="merch-product-image" src="IMG/placeholder.jpg" alt="Imagen provisoria de stickers de Nostalfag Fest">
+                        <div class="merch-product-info">
+                            <h2>Man in DEVOX remera promocional</h2>
+                            <p>El mejor tributo que viste, ahora en remera.</p>
+                            <a class="boton merch-product-buy" href="#comprar" data-producto="remera-devox">¡Lo quiero YA!</a>
+                        </div>
+                    </article>
+                    <article class="carousel-item">
+                        <img class="merch-product-image" src="IMG/placeholder.jpg" alt="Imagen provisoria de un Totebag de Nostalfag Fest">
+                        <div class="merch-product-info">
+                            <h2>Totebag de Nostalfag Fest</h2>
+                            <p>¿Querías ir a comprar verdura? Avisales a todos que tenés tremenda totebag.</p>
+                            <a class="boton merch-product-buy" href="#comprar" data-producto="totebag">¡Lo quiero YA!</a>
+                        </div>
+                    </article>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#merchCarousel" data-bs-slide="prev" aria-label="Producto anterior">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#merchCarousel" data-bs-slide="next" aria-label="Producto siguiente">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </button>
+            </div>
+
+            <section id="comprar" class="checkout-merch" aria-labelledby="titulo-checkout">
+                <h2 id="titulo-checkout">Finalizar compra</h2>
+                <p>Completá tus datos para finalizar la compra.</p>
+
+                <form id="formularioCompra" class="formulario-compra">
+                    <div class="campo-contacto">
+                        <label for="producto-compra">Producto</label>
+                        <select id="producto-compra" name="producto" required>
+                            <option value="remera-oficial">Remera Oficial de la Nostalfag Fest</option>
+                            <option value="remera-devox">Man in DEVOX remera promocional</option>
+                            <option value="totebag">Totebag de Nostalfag Fest</option>
+                        </select>
+                    </div>
+
+                    <div class="checkout-datos">
+                        <div class="campo-contacto">
+                            <label for="nombre-compra">Nombre y apellido</label>
+                            <input id="nombre-compra" name="nombre" type="text" autocomplete="name" required>
+                        </div>
+                        <div class="campo-contacto">
+                            <label for="email-compra">Correo electrónico</label>
+                            <input id="email-compra" name="email" type="email" autocomplete="email" required>
+                        </div>
+                        <div class="campo-contacto checkout-direccion">
+                            <label for="direccion-compra">Dirección</label>
+                            <input id="direccion-compra" name="direccion" type="text" autocomplete="street-address" required>
+                        </div>
+                        <div class="campo-contacto">
+                            <label for="localidad-compra">Localidad</label>
+                            <input id="localidad-compra" name="localidad" type="text" autocomplete="address-level2" required>
+                        </div>
+                        <div class="campo-contacto">
+                            <label for="cp-compra">Código postal</label>
+                            <input id="cp-compra" name="codigo-postal" type="text" autocomplete="postal-code" required>
+                        </div>
+                    </div>
+
+                    <fieldset class="metodos-pago">
+                        <legend>Medio de pago</legend>
+                        <label class="opcion-pago">
+                            <input type="radio" name="pago" value="Tarjeta de crédito o débito (pasarela segura)" required>
+                            <span>Tarjeta de crédito o débito <small> (Confiá en mí,soy un delfín) </small></span>
+                        </label>
+                        <label class="opcion-pago">
+                            <input type="radio" name="pago" value="Mercado Pago">
+                            <span>Mercado Pago <small>(piedad, Galperín)</small></span>
+                        </label>
+                        <label class="opcion-pago">
+                            <input type="radio" name="pago" value="Transferencia bancaria">
+                            <span>Transferencia bancaria <small>(te vamos a dejar los datos después de nuestro patrocinador, ExpressVPN)</small></span>
+                        </label>
+                        <p class="aviso-pago">Por motivos legales, no pongas datos reales de tarjeta ya que esto es una maqueta y no tendríamos problema en vaciarte la cuenta bancaria</p>
+                    </fieldset>
+
+                    <button class="boton" type="submit">Confirmar pedido</button>
+                </form>
+
+                <section id="confirmacionPedido" class="confirmacion-pedido" aria-labelledby="titulo-confirmacion" aria-live="polite" hidden>
+                    <h3 id="titulo-confirmacion">¡Compra exitosa!</h3>
+                    <p id="detalleConfirmacion"></p>
+                    <p>Esto es solo una confirmación visual: tu tarjeta sigue intacta, <small>lamentablemente...</small></p>
+                </section>
+            </section>
+
             <a class="boton" href="index.html#inicio">Volver al inicio</a>
         </section>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="merch.js" defer></script>
 </body>
 </html>

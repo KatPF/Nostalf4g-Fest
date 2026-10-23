@@ -7,43 +7,12 @@
 	padding: 0;
 }
 
-/* Fondo general y capas de interferencia que aparecen durante el efecto glitch, es JS por eso no lo dejo aplicado. */
 html {
 	/* Fondo base original: background: #050505; */
 	/* Variante con GIF: background: url('https://media.tenor.com/JQ-v2MptkzUAAAAM/pixel-stars-galaxy-twinkling.gif') center / cover no-repeat fixed; */
 	background: #050505;
-}
-
-html::before,
-html::after {
-	content: '';
-	position: fixed;
-	inset: 0;
-	opacity: 0;
-	pointer-events: none;
-	z-index: 2500;
-	transition: opacity 0.12s ease;
-}
-
-html::before {
-	background: repeating-linear-gradient(
-		to bottom,
-		rgba(255, 255, 255, 0.08) 0,
-		rgba(255, 255, 255, 0.08) 1px,
-		transparent 1px,
-		transparent 4px
-	);
-	mix-blend-mode: screen;
-}
-
-html::after {
-	background: rgba(255, 255, 255, 0.04);
-	backdrop-filter: blur(1px);
-}
-
-html.glitch-active::before,
-html.glitch-active::after {
-	opacity: 1;
+	/* Evita scroll horizontal causado por elementos decorativos fuera del viewport. */
+	overflow-x: clip;
 }
 
 body {
@@ -53,9 +22,13 @@ body {
 	isolation: isolate;
 	background: transparent;
 	color: white;
-	opacity: 1;
-	transform: translateY(0);
-	filter: none;
+}
+
+p {
+	/* La fuente y el interlineado mejoran la lectura de párrafos largos. */
+	font-size: calc(1em + 2px);
+	font-family: 'Oxanium', sans-serif;
+	line-height: 1.7;
 }
 
 /* Fondo animado loop detrás del contenido de las páginas. */
@@ -68,100 +41,11 @@ body::before {
 	background-size: 420px 420px;
 	background-repeat: repeat;
 	filter: grayscale(100%) blur(2px) brightness(0.5);
-	transform: scale(1.02);
 	opacity: 0.8;
 	z-index: -3;
 }
 
-/* Clases que activan las animaciones de entrada y salida entre páginas. */
-body.is-entering {
-	animation: page-glitch-enter 0.55s steps(2, end) both;
-}
-
-body.is-leaving {
-	animation: page-glitch-leave 0.42s steps(2, end) both;
-	pointer-events: none;
-}
-
-/* Fotograma a fotograma, estas animaciones simulan una transición con glitch. JS, no aplicado */
-@keyframes page-glitch-enter {
-	0% {
-		opacity: 0;
-		transform: translate(0, 16px) skewX(4deg);
-		filter: blur(7px) contrast(1.3);
-	}
-
-	18% {
-		opacity: 0.45;
-		transform: translate(-10px, 8px) skewX(-8deg);
-		filter: blur(3px) contrast(1.45);
-	}
-
-	36% {
-		opacity: 0.7;
-		transform: translate(8px, -4px) skewX(5deg);
-		filter: blur(1px) contrast(1.6);
-	}
-
-	58% {
-		opacity: 0.85;
-		transform: translate(-4px, 2px) skewX(-3deg);
-		filter: blur(1px) contrast(1.2);
-	}
-
-	100% {
-		opacity: 1;
-		transform: translate(0, 0) skewX(0deg);
-		filter: none;
-	}
-}
-
-@keyframes page-glitch-leave {
-	0% {
-		opacity: 1;
-		transform: translate(0, 0) skewX(0deg);
-		filter: none;
-	}
-
-	24% {
-		opacity: 0.9;
-		transform: translate(6px, -2px) skewX(6deg);
-		filter: contrast(1.5);
-	}
-
-	52% {
-		opacity: 0.55;
-		transform: translate(-10px, 5px) skewX(-10deg);
-		filter: blur(2px) contrast(1.65);
-	}
-
-	100% {
-		opacity: 0;
-		transform: translate(0, 12px) skewX(2deg);
-		filter: blur(6px) contrast(1.2);
-	}
-}
-
-/* Fondo alternativo para las páginas interiores: imagen repetida y velo oscuro. */
-body.fondo-interior {
-	position: relative;
-	isolation: isolate;
-	background: transparent;
-}
-
-body.fondo-interior::before {
-	content: '';
-	position: fixed;
-	inset: 0;
-	background-image: url('https://images.steamusercontent.com/ugc/275102315861800076/AEDECD33BCD2598D93C8DF2FA77BDFF9DF65ABDD/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false');
-	background-position: left center;
-	background-size: 33.333% 100%;
-	background-repeat: repeat-x;
-	filter: grayscale(100%) contrast(1.05) brightness(0.75) blur(4px);
-	transform: scale(1.03);
-	z-index: -2;
-}
-
+/* Detalle oscuro adicional para páginas interiores, sobre el mismo fondo monocromático. */
 body.fondo-interior::after {
 	content: '';
 	position: fixed;
@@ -310,6 +194,20 @@ h1 {
 	filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.75));
 }
 
+/* Destaca el horario y la ubicación del evento en la portada. */
+.portada .portada-fecha {
+	display: grid;
+	gap: 4px;
+	margin-bottom: 22px;
+	color: white;
+	font-size: 1.15rem;
+}
+
+.portada-fecha span {
+	color: #c3d9d1;
+	font-size: 0.9em;
+}
+
 .boton {
 	padding: 14px 32px;
 	background: #2b896b;
@@ -418,7 +316,7 @@ h1 {
 
 .columna p {
 	flex: 1;
-	line-height: 1.6;
+	text-align: left;
 }
 
 .columna .boton {
@@ -446,7 +344,7 @@ h1 {
 
 .saber-mas p {
 	margin-bottom: 25px;
-	line-height: 1.6;
+	text-align: left;
 }
 
 .saber-mas img {
@@ -488,7 +386,7 @@ h1 {
 
 .pagina-ubicacion .columnas .columna p {
 	flex: 1;
-	text-align: center;
+	text-align: left;
 }
 
 .pagina-ubicacion .columnas .columna .lista-bandas {
@@ -515,7 +413,7 @@ h1 {
 
 .ubicacion p {
 	margin-bottom: 12px;
-	line-height: 1.6;
+	text-align: left;
 }
 
 .faq-lista {
@@ -570,17 +468,12 @@ h1 {
 	color: #8dd8bd;
 }
 
-.galeria-grid {
-	display: grid;
-	grid-template-columns: repeat(3, minmax(0, 1fr));
-	gap: 20px;
-}
-
 .foto-galeria {
 	min-width: 0;
 	margin: 0;
 	background: #105b57;
 	border-top: 6px solid #2b896b;
+	color: white;
 }
 
 .foto-galeria img {
@@ -598,7 +491,242 @@ h1 {
 
 .foto-galeria figcaption {
 	padding: 12px 14px;
+	font-family: 'Oxanium', sans-serif;
+	font-size: 1.125rem;
 	line-height: 1.5;
+	text-align: left;
+}
+
+.galeria .carousel-indicators {
+	position: static;
+	margin: 16px 0 0;
+}
+
+.galeria .carousel-indicators [data-bs-target] {
+	background-color: #2b896b;
+}
+
+.galeria .carousel-indicators .active {
+	background-color: #8dd8bd;
+}
+
+.contacto {
+	margin: 40px 0;
+	padding: 28px;
+	background: rgba(0, 0, 0, 0.25);
+	border-top: 6px solid #2b896b;
+	text-align: left;
+}
+
+.contacto h2 {
+	margin-bottom: 12px;
+	color: #8dd8bd;
+}
+
+.formulario-contacto {
+	display: grid;
+	gap: 18px;
+	max-width: 620px;
+	margin: 24px auto 0;
+}
+
+.campo-contacto {
+	display: grid;
+	gap: 8px;
+}
+
+.campo-contacto label {
+	font-family: 'Oxanium', sans-serif;
+	font-weight: 700;
+}
+
+.campo-contacto input,
+.campo-contacto textarea {
+	width: 100%;
+	padding: 12px;
+	border: 2px solid #2b896b;
+	border-radius: 0;
+	background: #0b3938;
+	color: white;
+	font: inherit;
+}
+
+.campo-contacto input:focus,
+.campo-contacto textarea:focus {
+	outline: 2px solid #8dd8bd;
+	outline-offset: 2px;
+}
+
+.campo-contacto textarea {
+	resize: vertical;
+}
+
+.formulario-contacto .boton {
+	justify-self: start;
+	border: 0;
+	font: inherit;
+}
+
+.formulario-contacto .boton:disabled {
+	cursor: not-allowed;
+	opacity: 0.6;
+}
+
+.aviso-contacto {
+	margin: -10px 0 0;
+	font-size: 0.9em;
+}
+
+.merch-carousel {
+	margin: 28px auto;
+	max-width: 620px;
+	padding-bottom: 38px;
+}
+
+.merch-product-image {
+	width: min(100%, 500px);
+	aspect-ratio: 4 / 3;
+	object-fit: contain;
+	display: block;
+	margin: 0 auto 20px;
+	filter: grayscale(100%);
+	transition: filter 0.4s ease;
+}
+
+.merch-product-image:hover {
+	filter: grayscale(0%);
+}
+
+.merch-product-info {
+	padding: 0 56px 18px;
+}
+
+.merch-product-info h2 {
+	margin-bottom: 12px;
+	color: #8dd8bd;
+	font-size: 1.5rem;
+}
+
+.merch-product-info p {
+	margin-bottom: 18px;
+}
+
+.merch-carousel .carousel-indicators {
+	margin-bottom: 0;
+}
+
+.merch-carousel .carousel-indicators [data-bs-target] {
+	background-color: #2b896b;
+}
+
+.merch-carousel .carousel-indicators .active {
+	background-color: #8dd8bd;
+}
+
+.merch-aviso {
+	margin: 20px 0;
+}
+
+.checkout-merch {
+	margin: 36px 0 24px;
+	padding: 28px;
+	background: rgba(0, 0, 0, 0.25);
+	border-top: 6px solid #2b896b;
+	text-align: left;
+}
+
+.checkout-merch h2,
+.confirmacion-pedido h3 {
+	margin-bottom: 12px;
+	color: #8dd8bd;
+}
+
+.formulario-compra {
+	display: grid;
+	gap: 24px;
+	max-width: 720px;
+	margin: 24px auto 0;
+}
+
+.campo-contacto select {
+	width: 100%;
+	padding: 12px;
+	border: 2px solid #2b896b;
+	border-radius: 0;
+	background: #0b3938;
+	color: white;
+	font: inherit;
+}
+
+.campo-contacto input::placeholder {
+	color: #c3d9d1;
+}
+
+.checkout-datos {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 18px;
+}
+
+.checkout-direccion {
+	grid-column: 1 / -1;
+}
+
+.metodos-pago {
+	display: grid;
+	gap: 12px;
+	padding: 18px;
+	border: 1px solid #2b896b;
+}
+
+.metodos-pago legend {
+	float: none;
+	width: auto;
+	padding: 0 8px;
+	color: #8dd8bd;
+	font-family: 'Oxanium', sans-serif;
+	font-weight: 700;
+}
+
+.opcion-pago {
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+}
+
+.opcion-pago input {
+	margin-top: 5px;
+	accent-color: #2b896b;
+}
+
+.opcion-pago small {
+	display: block;
+	color: #c3d9d1;
+	font-family: 'Oxanium', sans-serif;
+}
+
+.aviso-pago {
+	margin: 4px 0 0;
+	font-size: 0.9em;
+}
+
+.formulario-compra > .boton {
+	justify-self: start;
+	border: 0;
+	font: inherit;
+	cursor: pointer;
+}
+
+.confirmacion-pedido {
+	margin-top: 28px;
+	padding: 20px;
+	background: rgba(43, 137, 107, 0.2);
+	border-left: 5px solid #8dd8bd;
+	overflow-wrap: anywhere;
+}
+
+.confirmacion-pedido p:last-child {
+	margin-bottom: 0;
 }
 
 /* Mapa adaptable, botones y variante visual del botón secundario. */
@@ -675,10 +803,6 @@ h1 {
 		grid-template-columns: 1fr;
 	}
 
-	.galeria-grid {
-		grid-template-columns: 1fr;
-	}
-
 	.columna {
 		min-height: 250px;
 	}
@@ -689,6 +813,22 @@ h1 {
 
 	.ubicacion {
 		padding: 25px 20px;
+	}
+
+	.contacto {
+		padding: 22px 18px;
+	}
+
+	.checkout-merch {
+		padding: 22px 18px;
+	}
+
+	.checkout-datos {
+		grid-template-columns: 1fr;
+	}
+
+	.checkout-direccion {
+		grid-column: auto;
 	}
 
 	.pagina-ubicacion {
