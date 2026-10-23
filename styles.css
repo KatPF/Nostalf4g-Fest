@@ -45,7 +45,7 @@ body::before {
 	z-index: -3;
 }
 
-/* Fondo aleatorio: it's peanut butter jelly time!!! */
+/* Fondo easter egg: it's peanut butter jelly time!!! */
 html.easter-egg-background body::before {
 	background-image: url('https://images.steamusercontent.com/ugc/275102315861800076/AEDECD33BCD2598D93C8DF2FA77BDFF9DF65ABDD/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false');
 	background-position: left center;
