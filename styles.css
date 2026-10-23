@@ -127,6 +127,10 @@ body.fondo-interior::after {
 	font-family: 'Oxanium', sans-serif;
 }
 
+.easter-egg-animation {
+	display: none;
+}
+
 /* Control del menú móvil: el checkbox queda oculto y su etiqueta actúa como botón. */
 .nav-toggle {
 	position: absolute;
@@ -794,6 +798,41 @@ h1 {
 
 /* Ajustes para pantallas estrechas: menú desplegable y contenido en una columna. */
 @media (max-width: 768px) {
+	.easter-egg-notice {
+		left: 12px;
+		right: 12px;
+		bottom: 16px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 12px;
+		padding: 10px 14px;
+	}
+
+	.easter-egg-animation {
+		display: inline-block;
+		flex: 0 0 auto;
+		font-size: 1.5rem;
+		animation: easter-egg-sway 2.4s ease-in-out infinite;
+		transform-origin: center bottom;
+	}
+
+	@keyframes easter-egg-sway {
+		0%, 100% {
+			transform: translateY(0) rotate(-5deg);
+		}
+
+		50% {
+			transform: translateY(-3px) rotate(5deg);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.easter-egg-animation {
+			animation: none;
+		}
+	}
+
 	.navbar {
 		flex-wrap: wrap;
 		padding: 12px 16px;

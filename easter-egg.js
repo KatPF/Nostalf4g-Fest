@@ -17,6 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
             notice.className = 'easter-egg-notice';
             notice.setAttribute('role', 'status');
             notice.textContent = "It's peanut butter jelly time!!!";
+
+            const animation = document.createElement('span');
+            animation.className = 'easter-egg-animation';
+            animation.setAttribute('aria-hidden', 'true');
+            animation.textContent = '🍌';
+            notice.append(animation);
+
             document.body.append(notice);
         }
     });
