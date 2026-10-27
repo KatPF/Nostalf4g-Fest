@@ -40,7 +40,7 @@ body::before {
 	background-position: left top;
 	background-size: 420px 420px;
 	background-repeat: repeat;
-	filter: grayscale(100%) blur(2px) brightness(0.5);
+	filter: grayscale(100%) blur(2px) brightness(2);
 	opacity: 0.8;
 	z-index: -3;
 }
@@ -51,7 +51,7 @@ html.easter-egg-background body::before {
 	background-position: left center;
 	background-size: 33.333% 100%;
 	background-repeat: repeat-x;
-	filter: grayscale(100%) contrast(1.05) brightness(0.75) blur(4px);
+	filter: grayscale(100%) contrast(1.05) brightness(0.5) blur(4px);
 }
 
 /* Detalle oscuro adicional para páginas interiores, sobre el mismo fondo monocromático. */
@@ -72,10 +72,12 @@ body.fondo-interior::after {
 
 .navbar {
 	display: flex;
+	flex-wrap: nowrap;
 	align-items: center;
 	justify-content: space-between;
 	gap: 20px;
 	padding: 14px 24px;
+	line-height: normal;
 	background: rgba(0, 0, 0, 0.88);
 	backdrop-filter: blur(10px);
 	border-bottom: 1px solid rgba(141, 216, 189, 0.2);
@@ -161,6 +163,8 @@ body.fondo-interior::after {
 	display: flex;
 	align-items: center;
 	gap: 14px;
+	margin-bottom: 0;
+	padding-left: 0;
 	list-style: none;
 }
 
@@ -177,6 +181,12 @@ body.fondo-interior::after {
 .nav-links a:hover {
 	background: rgba(43, 137, 107, 0.2);
 	border-color: rgba(141, 216, 189, 0.35);
+	color: #8dd8bd;
+}
+
+.nav-links a[aria-current="page"] {
+	background: rgba(43, 137, 107, 0.35);
+	border-color: #2b896b;
 	color: #8dd8bd;
 }
 
@@ -442,8 +452,15 @@ h1 {
 	margin-top: auto;
 }
 
-.pagina-ubicacion .ubicacion > img {
+.pagina-ubicacion .ubicacion > .info-evento-imagen {
 	width: min(100%, 760px);
+	display: block;
+	margin: 0 auto 20px;
+}
+
+.pagina-ubicacion .ubicacion > .info-evento-imagen img {
+	display: block;
+	width: 100%;
 	aspect-ratio: auto;
 	object-fit: contain;
 }
@@ -525,6 +542,10 @@ h1 {
 	display: block;
 	filter: grayscale(100%);
 	transition: filter 0.4s ease;
+}
+
+.foto-galeria-vertical {
+	object-position: center 12%;
 }
 
 .foto-galeria:hover img {
@@ -631,12 +652,7 @@ h1 {
 	object-fit: contain;
 	display: block;
 	margin: 0 auto 20px;
-	filter: grayscale(100%);
-	transition: filter 0.4s ease;
-}
-
-.merch-product-image:hover {
-	filter: grayscale(0%);
+	background-color: #2b896b;
 }
 
 .merch-product-info {
@@ -651,6 +667,13 @@ h1 {
 
 .merch-product-info p {
 	margin-bottom: 18px;
+	text-align: center;
+}
+
+.merch-product-buy {
+	border: 0;
+	font: inherit;
+	cursor: pointer;
 }
 
 .merch-carousel .carousel-indicators {
@@ -670,11 +693,36 @@ h1 {
 }
 
 .checkout-merch {
-	margin: 36px 0 24px;
+	width: min(900px, calc(100% - 32px));
+	max-height: calc(100dvh - 32px);
+	margin: auto;
 	padding: 28px;
-	background: rgba(0, 0, 0, 0.25);
+	overflow-y: auto;
+	background: #105b57;
 	border-top: 6px solid #2b896b;
+	color: white;
 	text-align: left;
+}
+
+.checkout-merch::backdrop {
+	background: rgba(0, 0, 0, 0.75);
+}
+
+.checkout-encabezado {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 16px;
+}
+
+.checkout-cerrar {
+	padding: 0 8px;
+	border: 0;
+	background: transparent;
+	color: white;
+	font-size: 2rem;
+	line-height: 1;
+	cursor: pointer;
 }
 
 .checkout-merch h2,
@@ -765,6 +813,18 @@ h1 {
 	background: rgba(43, 137, 107, 0.2);
 	border-left: 5px solid #8dd8bd;
 	overflow-wrap: anywhere;
+}
+
+.confirmacion-pedido:focus {
+	outline: 2px solid #8dd8bd;
+	outline-offset: 4px;
+}
+
+.confirmacion-gif {
+	display: block;
+	width: min(100%, 360px);
+	height: auto;
+	margin: 16px auto 0;
 }
 
 .confirmacion-pedido p:last-child {
@@ -890,6 +950,10 @@ h1 {
 
 	.ubicacion {
 		padding: 25px 20px;
+	}
+
+	.pagina-ubicacion .ubicacion > .info-evento-imagen img {
+		background-color: #000;
 	}
 
 	.contacto {

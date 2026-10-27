@@ -34,7 +34,7 @@
                 <li><a href="quienes-somos.html">¿Quiénes somos?</a></li>
                 <li><a href="ubicacion.html">Ubicación</a></li>
                 <li><a href="FAQ.html">FAQ</a></li>
-                <li><a href="merch.html">Merch</a></li>
+                <li><a href="merch.html" aria-current="page">Merch</a></li>
             </ul>
         </nav>
     </header>
@@ -52,27 +52,27 @@
                 </div>
                 <div class="carousel-inner">
                     <article class="carousel-item active">
-                        <img class="merch-product-image" src="IMG/placeholder.jpg" alt="Imagen provisoria de una remera de Nostalfag Fest">
+                        <img class="merch-product-image" src="Merch/Mockup/Mockup1.png" alt="Mockup de la remera oficial de Nostalfag Fest">
                         <div class="merch-product-info">
                             <h2>Remera Oficial de la Nostalfag Fest</h2>
                             <p>Una remera y, además, oficial.</p>
-                            <a class="boton merch-product-buy" href="#comprar" data-producto="remera-oficial">¡Lo quiero YA!</a>
+                            <button class="boton merch-product-buy" type="button" data-producto="remera-oficial">¡Lo quiero YA!</button>
                         </div>
                     </article>
                     <article class="carousel-item">
-                        <img class="merch-product-image" src="IMG/placeholder.jpg" alt="Imagen provisoria de stickers de Nostalfag Fest">
+                        <img class="merch-product-image" src="Merch/Mockup/Mockup2.png" alt="Mockup de la remera promocional de Man in DEVOX">
                         <div class="merch-product-info">
                             <h2>Man in DEVOX remera promocional</h2>
                             <p>El mejor tributo que viste, ahora en remera.</p>
-                            <a class="boton merch-product-buy" href="#comprar" data-producto="remera-devox">¡Lo quiero YA!</a>
+                            <button class="boton merch-product-buy" type="button" data-producto="remera-devox">¡Lo quiero YA!</button>
                         </div>
                     </article>
                     <article class="carousel-item">
-                        <img class="merch-product-image" src="IMG/placeholder.jpg" alt="Imagen provisoria de un Totebag de Nostalfag Fest">
+                        <img class="merch-product-image" src="Merch/Mockup/Mockup3.png" alt="Mockup de la totebag de Nostalfag Fest">
                         <div class="merch-product-info">
                             <h2>Totebag de Nostalfag Fest</h2>
                             <p>¿Querías ir a comprar verdura? Avisales a todos que tenés tremenda totebag.</p>
-                            <a class="boton merch-product-buy" href="#comprar" data-producto="totebag">¡Lo quiero YA!</a>
+                            <button class="boton merch-product-buy" type="button" data-producto="totebag">¡Lo quiero YA!</button>
                         </div>
                     </article>
                 </div>
@@ -84,8 +84,14 @@
                 </button>
             </div>
 
-            <section id="comprar" class="checkout-merch" aria-labelledby="titulo-checkout">
-                <h2 id="titulo-checkout">Finalizar compra</h2>
+            <a class="boton" href="index.html#inicio">Volver al inicio</a>
+        </section>
+
+            <dialog id="checkoutDialog" class="checkout-merch" aria-labelledby="titulo-checkout">
+                <div class="checkout-encabezado">
+                    <h2 id="titulo-checkout">Finalizar compra</h2>
+                    <button class="checkout-cerrar" type="button" aria-label="Cerrar ventana de compra">&times;</button>
+                </div>
                 <p>Completá tus datos para finalizar la compra.</p>
 
                 <form id="formularioCompra" class="formulario-compra">
@@ -129,27 +135,25 @@
                         </label>
                         <label class="opcion-pago">
                             <input type="radio" name="pago" value="Mercado Pago">
-                            <span>Mercado Pago <small>(piedad, Galperín)</small></span>
+                            <span>Mercado Pago <small>(Piedad, Galperín)</small></span>
                         </label>
                         <label class="opcion-pago">
                             <input type="radio" name="pago" value="Transferencia bancaria">
-                            <span>Transferencia bancaria <small>(te vamos a dejar los datos después de nuestro patrocinador, ExpressVPN)</small></span>
+                            <span>Transferencia bancaria <small>(Te vamos a dejar los datos después de nuestro patrocinador, ExpressVPN)</small></span>
                         </label>
-                        <p class="aviso-pago">Por motivos legales, no pongas datos reales de tarjeta ya que esto es una maqueta y no tendríamos problema en vaciarte la cuenta bancaria</p>
+                        <p class="aviso-pago">Por motivos legales, no pongas datos reales de tarjeta ya que esto es una maqueta y no tendríamos problema en vaciarte la cuenta bancaria, ¿verdad?</p>
                     </fieldset>
 
                     <button class="boton" type="submit">Confirmar pedido</button>
                 </form>
 
-                <section id="confirmacionPedido" class="confirmacion-pedido" aria-labelledby="titulo-confirmacion" aria-live="polite" hidden>
+                <section id="confirmacionPedido" class="confirmacion-pedido" aria-labelledby="titulo-confirmacion" aria-live="polite" tabindex="-1" hidden>
                     <h3 id="titulo-confirmacion">¡Compra exitosa!</h3>
                     <p id="detalleConfirmacion"></p>
                     <p>Esto es solo una confirmación visual: tu tarjeta sigue intacta, <small>lamentablemente...</small></p>
+                    <img class="confirmacion-gif" src="https://dthezntil550i.cloudfront.net/f1/0017951793/ea26930a-e071-4708-bbf8-2dd549ac5c45.gif" alt="Animación de celebración por la compra">
                 </section>
-            </section>
-
-            <a class="boton" href="index.html#inicio">Volver al inicio</a>
-        </section>
+            </dialog>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="merch.js" defer></script>

@@ -2,12 +2,32 @@ const formularioCompra = document.querySelector('#formularioCompra');
 const selectorProducto = document.querySelector('#producto-compra');
 const confirmacionPedido = document.querySelector('#confirmacionPedido');
 const detalleConfirmacion = document.querySelector('#detalleConfirmacion');
+const checkoutDialog = document.querySelector('#checkoutDialog');
+const cerrarCheckout = document.querySelector('.checkout-cerrar');
 
-document.querySelectorAll('.merch-product-buy').forEach((enlace) => {
-    enlace.addEventListener('click', () => {
-        selectorProducto.value = enlace.dataset.producto;
+document.querySelectorAll('.merch-product-buy').forEach((botonCompra) => {
+    botonCompra.addEventListener('click', () => {
+        selectorProducto.value = botonCompra.dataset.producto;
         confirmacionPedido.hidden = true;
+        checkoutDialog.showModal();
     });
+});
+
+cerrarCheckout.addEventListener('click', () => {
+    checkoutDialog.close();
+});
+
+checkoutDialog.addEventListener('click', (event) => {
+    if (event.target === checkoutDialog) {
+        checkoutDialog.close();
+    }
+});
+
+checkoutDialog.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+        event.preventDefault();
+        checkoutDialog.close();
+    }
 });
 
 formularioCompra.addEventListener('input', () => {
@@ -38,5 +58,5 @@ formularioCompra.addEventListener('submit', (event) => {
         `Producto: ${producto}. Nombre: ${nombre}. Correo: ${email}. ` +
         `Dirección: ${direccion}, ${localidad}, CP ${codigoPostal}. Medio de pago: ${pago}.`;
     confirmacionPedido.hidden = false;
-    confirmacionPedido.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    confirmacionPedido.focus();
 });
