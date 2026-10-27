@@ -71,6 +71,7 @@ body.fondo-interior::after {
 }
 
 .navbar {
+	/* Neutraliza los estilos de Bootstrap que alteraban la altura de la barra. */
 	display: flex;
 	flex-wrap: nowrap;
 	align-items: center;
@@ -185,6 +186,7 @@ body.fondo-interior::after {
 }
 
 .nav-links a[aria-current="page"] {
+	/* Distingue el enlace de la página actual en todas las secciones. */
 	background: rgba(43, 137, 107, 0.35);
 	border-color: #2b896b;
 	color: #8dd8bd;
