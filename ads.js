@@ -23,6 +23,14 @@
         {
             src: 'Ads/ad.png',
             alt: 'Anuncio retro de internet'
+        },
+        {
+            src: 'Ads/mundogaturro.jpg',
+            alt: 'Anuncio de Mundo Gaturro'
+        },
+        {
+            src: 'Ads/biblia-online.jpg',
+            alt: 'Anuncio de Biblia Online'
         }
     ];
 
