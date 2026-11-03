@@ -10,15 +10,15 @@
         },
         {
             src: 'Ads/grande-july3p-v0-9y0070vzsv7b1.webp',
-            alt: 'Publicidad retro de internet'
+            alt: 'Grande July 3P, un anuncio de la época de los 2000s'
         },
         {
             src: 'Ads/period-memardo.png',
-            alt: 'Imagen publicitaria retro de internet'
+            alt: '¿Y ese Ad de virgo, Momo?'
         },
         {
             src: 'Ads/iphone5.png',
-            alt: 'Anuncio retro de iPhone 5 con un teléfono como premio'
+            alt: 'Ganá gratis un iPhone 5'
         },
         {
             src: 'Ads/ad.png',
