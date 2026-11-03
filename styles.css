@@ -70,6 +70,80 @@ body.fondo-interior::after {
 	z-index: 1000;
 }
 
+.reading-progress {
+	position: fixed;
+	inset: 0 0 auto;
+	z-index: 1101;
+	height: 4px;
+	background: rgba(0, 0, 0, 0.65);
+	pointer-events: none;
+}
+
+.reading-progress[hidden] {
+	display: none;
+}
+
+.reading-progress-fill {
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(90deg, #2b896b, #8dd8bd);
+	transform: scaleX(var(--reading-progress, 0));
+	transform-origin: left center;
+	transition: transform 100ms linear;
+}
+
+.anuncio-publicitario {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	padding: 18px 16px;
+	background: rgba(0, 0, 0, 0.72);
+}
+
+.anuncio-aviso {
+	margin: 0;
+	color: #c3d9d1;
+	font-size: 0.75rem;
+	text-align: center;
+	letter-spacing: 0.04em;
+}
+
+.anuncio-aviso a {
+	color: #8dd8bd;
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+
+.anuncio-aviso a:hover,
+.anuncio-aviso a:focus-visible {
+	color: #fff;
+}
+
+.anuncio-aviso a:focus-visible {
+	outline: 2px solid #8dd8bd;
+	outline-offset: 3px;
+}
+
+.anuncio-marco {
+	display: grid;
+	width: min(320px, 100%);
+	height: 180px;
+	place-items: center;
+}
+
+.anuncio-marco img {
+	display: block;
+	max-width: 100%;
+	max-height: 180px;
+	width: auto;
+	height: auto;
+	border: 1px solid rgba(141, 216, 189, 0.45);
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
 .navbar {
 	/* Neutraliza los estilos de Bootstrap que alteraban la altura de la barra. */
 	display: flex;
@@ -329,6 +403,7 @@ h1 {
 	margin-top: 0;
 }
 
+/* El JavaScript activa estas clases al entrar cada elemento de Inicio en pantalla. */
 html.scroll-reveal-enabled .scroll-reveal {
 	opacity: 0;
 	transition:
@@ -461,6 +536,7 @@ html.scroll-reveal-enabled .scroll-reveal.is-visible {
 	padding: 40px;
 }
 
+/* Animación CSS de entrada al cargar las páginas interiores. */
 @keyframes entrada-pagina {
 	from {
 		opacity: 0;
@@ -478,6 +554,10 @@ html.scroll-reveal-enabled .scroll-reveal.is-visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
+	.reading-progress-fill {
+		transition: none;
+	}
+
 	.pagina-ubicacion > .ubicacion {
 		animation: none;
 	}
@@ -525,6 +605,32 @@ html.scroll-reveal-enabled .scroll-reveal.is-visible {
 .ubicacion p {
 	margin-bottom: 12px;
 	text-align: left;
+}
+
+.inicio a:not(.boton),
+.ubicacion a:not(.boton) {
+	color: #8dd8bd;
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 3px;
+}
+
+.inicio a:not(.boton):visited,
+.ubicacion a:not(.boton):visited {
+	color: #b6f1dc;
+}
+
+.inicio a:not(.boton):hover,
+.inicio a:not(.boton):focus-visible,
+.ubicacion a:not(.boton):hover,
+.ubicacion a:not(.boton):focus-visible {
+	color: #fff;
+}
+
+.inicio a:not(.boton):focus-visible,
+.ubicacion a:not(.boton):focus-visible {
+	outline: 2px solid #8dd8bd;
+	outline-offset: 3px;
 }
 
 .faq-lista {

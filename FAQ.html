@@ -8,9 +8,14 @@
     <link rel="icon" type="image/png" href="Logos/LOGO_blanco.png">
     <link rel="stylesheet" href="styles.css">
     <script src="easter-egg.js"></script>
+    <script src="ads.js" defer></script>
+    <script src="reading-progress.js" defer></script>
 </head>
 
 <body class="fondo-interior">
+    <div class="reading-progress" role="progressbar" aria-label="Progreso de lectura" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" hidden>
+        <span class="reading-progress-fill"></span>
+    </div>
     <header class="site-header">
         <nav class="navbar" aria-label="Navegación principal">
             <div class="brand">
@@ -56,7 +61,7 @@
 
                 <details>
                     <summary>¡¡Esperé al colectivo en Av. Corrientes a las 11PM y me robaron una zapatilla!! ¿Qué hago ahora?</summary>
-                    <p>¡¡SÍ!! Esa banda está invitada</p>
+                    <p>¡¡SÍ!! Esa banda está invitada.</p>
                 </details>
 
                 <details>
@@ -71,12 +76,18 @@
 
                 <details>
                     <summary>¿Dónde puedo ver el merch?</summary>
-                    <p>La sección de <a href="merch.html">Merch</a></p>
+                    <p>La sección de <a href="merch.html">Merch.</a></p>
                 </details>
             </section>
 
             <a class="boton" href="index.html#inicio">Volver al inicio</a>
         </section>
     </main>
+    <aside class="anuncio-publicitario" aria-label="Anuncio">
+        <p class="anuncio-aviso">Espacio publicitario · ¿Querés patrocinarnos la página? <a href="Info.html#contacto">Enviá tus datos al formulario</a>.</p>
+        <div class="anuncio-marco">
+            <img src="Ads/Love-meet.net-GTAIV-WebBanner.webp" alt="Anuncio retro de Love Meet.net para Grand Theft Auto IV">
+        </div>
+    </aside>
 </body>
 </html>
