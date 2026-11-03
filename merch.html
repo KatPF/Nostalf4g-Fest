@@ -101,6 +101,20 @@
                 </button>
             </div>
 
+            <section class="historial-pedidos" aria-labelledby="titulo-historial">
+                <div class="historial-encabezado">
+                    <div>
+                        <p class="historial-etiqueta">TU COLECCIÓN</p>
+                        <h2 id="titulo-historial">Historial de pedidos</h2>
+                    </div>
+                    <span class="historial-sello" aria-hidden="true">NFF / MERCH</span>
+                </div>
+                <p class="historial-descripcion">Acá quedan tus compras confirmadas en este navegador.</p>
+                <p id="historialEstado" class="historial-estado" role="status" aria-live="polite" hidden></p>
+                <p id="historialVacio" class="historial-vacio">Todavía no hay pedidos. Cuando confirmes tu primera compra, va a aparecer acá.</p>
+                <ol id="listaPedidos" class="lista-pedidos" aria-label="Pedidos realizados"></ol>
+            </section>
+
             <a class="boton" href="index.html#inicio">Volver al inicio</a>
         </section>
 
